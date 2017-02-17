@@ -1,0 +1,15 @@
+version: '2'
+services:
+  express_node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: node_modules/.bin/nodemon --exec npm start
+    environment:
+      NODE_ENV: development
+    ports:
+      - 5000:5000
+    volumes:
+     - .:/home/app/express_node
+     - /home/app/express_node/node_modules
+
